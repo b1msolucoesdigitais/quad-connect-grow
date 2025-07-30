@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone, MapPin, Clock, ShoppingCart } from "lucide-react";
+import quadLogo from "@/assets/quad-logo.png";
 
 const Footer = () => {
   return (
@@ -8,10 +9,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Sobre */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">Q</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src={quadLogo} 
+                alt="Quad Informática" 
+                className="h-8 w-auto"
+              />
               <span className="text-lg font-bold text-foreground">Quad Informática</span>
             </div>
             <p className="text-muted-foreground text-sm mb-4">

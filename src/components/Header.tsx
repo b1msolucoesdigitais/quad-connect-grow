@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
+import quadLogo from "@/assets/quad-logo.png";
 
 const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">Q</span>
-          </div>
+        <div className="flex items-center space-x-3">
+          <img 
+            src={quadLogo} 
+            alt="Quad Informática" 
+            className="h-8 w-auto"
+          />
           <span className="text-xl font-bold text-foreground">Quad Informática</span>
         </div>
         
