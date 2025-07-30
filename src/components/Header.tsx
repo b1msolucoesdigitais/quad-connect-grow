@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <img 
-            src={quadLogo} 
+            src="https://www.quadinformatica.com.br/wp-content/uploads/2020/09/LOGO-GRAND.png" 
             alt="Quad Informática" 
             className="h-[85px] w-auto"
           />

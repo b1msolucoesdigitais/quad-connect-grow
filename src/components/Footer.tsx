@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <img 
-                src={quadLogo} 
+                src="https://www.quadinformatica.com.br/wp-content/uploads/2020/09/LOGO-GRAND.png" 
                 alt="Quad Informática" 
                 className="h-[85px] w-auto"
               />
