@@ -32,7 +32,7 @@ const Footer = () => {
               <li>Rede de Computadores</li>
               <li>Upgrade de Hardware</li>
               <li>Manutenção de Notebooks</li>
-              <li>Assistência em Celulares</li>
+              
               <li>Suporte Empresarial</li>
             </ul>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                <span>Vale do Aço - MG</span>
+                <span>Amaro Lanari, Cel Fanbriciano - MG</span>
               </div>
             </div>
           </div>

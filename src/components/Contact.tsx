@@ -6,18 +6,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  MessageCircle, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock,
-  Send,
-  ShoppingCart
-} from "lucide-react";
-
+import { MessageCircle, Phone, Mail, MapPin, Clock, Send, ShoppingCart } from "lucide-react";
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,10 +18,9 @@ const Contact = () => {
     service: "",
     message: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validação básica
     if (!formData.name || !formData.phone || !formData.service) {
       toast({
@@ -49,14 +41,11 @@ Olá! Gostaria de solicitar um orçamento:
 *Serviço:* ${formData.service}
 *Mensagem:* ${formData.message || 'Sem observações adicionais'}
     `.trim();
-
     const whatsappUrl = `https://api.whatsapp.com/send?phone=553138236644&text=${encodeURIComponent(whatsappMessage)}`;
-    
     window.open(whatsappUrl, '_blank');
-    
     toast({
       title: "Redirecionando para WhatsApp",
-      description: "Você será redirecionado para o WhatsApp com sua mensagem pronta!",
+      description: "Você será redirecionado para o WhatsApp com sua mensagem pronta!"
     });
 
     // Limpar formulário
@@ -68,13 +57,13 @@ Olá! Gostaria de solicitar um orçamento:
       message: ""
     });
   };
-
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
-
-  return (
-    <section id="contato" className="py-20 bg-muted/30">
+  return <section id="contato" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -102,40 +91,22 @@ Olá! Gostaria de solicitar um orçamento:
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">Nome Completo *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
-                      placeholder="Seu nome completo"
-                      required
-                    />
+                    <Input id="name" value={formData.name} onChange={e => handleInputChange('name', e.target.value)} placeholder="Seu nome completo" required />
                   </div>
                   <div>
                     <Label htmlFor="phone">Telefone *</Label>
-                    <Input
-                      id="phone"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="(31) 99999-9999"
-                      required
-                    />
+                    <Input id="phone" value={formData.phone} onChange={e => handleInputChange('phone', e.target.value)} placeholder="(31) 99999-9999" required />
                   </div>
                 </div>
 
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
-                    placeholder="seu@email.com"
-                  />
+                  <Input id="email" type="email" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} placeholder="seu@email.com" />
                 </div>
 
                 <div>
                   <Label htmlFor="service">Serviço Desejado *</Label>
-                  <Select value={formData.service} onValueChange={(value) => handleInputChange('service', value)}>
+                  <Select value={formData.service} onValueChange={value => handleInputChange('service', value)}>
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione o serviço" />
                     </SelectTrigger>
@@ -153,13 +124,7 @@ Olá! Gostaria de solicitar um orçamento:
 
                 <div>
                   <Label htmlFor="message">Mensagem Adicional</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange('message', e.target.value)}
-                    placeholder="Descreva o problema ou serviço desejado..."
-                    rows={4}
-                  />
+                  <Textarea id="message" value={formData.message} onChange={e => handleInputChange('message', e.target.value)} placeholder="Descreva o problema ou serviço desejado..." rows={4} />
                 </div>
 
                 <Button type="submit" variant="hero" size="lg" className="w-full">
@@ -193,7 +158,7 @@ Olá! Gostaria de solicitar um orçamento:
                     </div>
                     <div>
                       <p className="font-medium">Localização</p>
-                      <p className="text-muted-foreground">Vale do Aço - MG</p>
+                      <p className="text-muted-foreground">Amaro Lanari, Cel. Fabriciano - MG</p>
                     </div>
                   </div>
 
@@ -215,12 +180,7 @@ Olá! Gostaria de solicitar um orçamento:
 
             {/* Ações Rápidas */}
             <div className="grid grid-cols-1 gap-4">
-              <Button 
-                variant="whatsapp" 
-                size="lg" 
-                className="w-full justify-start h-auto p-4"
-                onClick={() => window.open('https://api.whatsapp.com/send?phone=553138236644&text=Olá! Gostaria de saber mais sobre os serviços da Quad Informática.')}
-              >
+              <Button variant="whatsapp" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('https://api.whatsapp.com/send?phone=553138236644&text=Olá! Gostaria de saber mais sobre os serviços da Quad Informática.')}>
                 <MessageCircle className="w-6 h-6 mr-3" />
                 <div className="text-left">
                   <div className="font-semibold">Falar via WhatsApp</div>
@@ -228,12 +188,7 @@ Olá! Gostaria de solicitar um orçamento:
                 </div>
               </Button>
 
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="w-full justify-start h-auto p-4"
-                onClick={() => window.open('tel:+553138236644')}
-              >
+              <Button variant="outline" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('tel:+553138236644')}>
                 <Phone className="w-6 h-6 mr-3" />
                 <div className="text-left">
                   <div className="font-semibold">Ligar Agora</div>
@@ -241,12 +196,7 @@ Olá! Gostaria de solicitar um orçamento:
                 </div>
               </Button>
 
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="w-full justify-start h-auto p-4"
-                onClick={() => window.open('https://quadinformatica.mercadoshops.com.br/')}
-              >
+              <Button variant="outline" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('https://quadinformatica.mercadoshops.com.br/')}>
                 <ShoppingCart className="w-6 h-6 mr-3" />
                 <div className="text-left">
                   <div className="font-semibold">Loja Online</div>
@@ -257,8 +207,6 @@ Olá! Gostaria de solicitar um orçamento:
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
