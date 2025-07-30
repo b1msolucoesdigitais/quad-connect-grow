@@ -9,13 +9,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Sobre */}
           <div>
-            <div className="flex items-center space-x-3 mb-4">
+            <div className="flex items-center mb-4">
               <img 
                 src={quadLogo} 
                 alt="Quad Informática" 
-                className="h-8 w-auto"
+                className="h-[85px] w-auto"
               />
-              <span className="text-lg font-bold text-foreground">Quad Informática</span>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
               Há mais de 10 anos oferecendo soluções completas em tecnologia 

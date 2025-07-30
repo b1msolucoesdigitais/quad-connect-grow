@@ -6,13 +6,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center">
           <img 
             src={quadLogo} 
             alt="Quad Informática" 
-            className="h-8 w-auto"
+            className="h-[85px] w-auto"
           />
-          <span className="text-xl font-bold text-foreground">Quad Informática</span>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
