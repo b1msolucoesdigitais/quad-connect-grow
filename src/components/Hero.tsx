@@ -69,8 +69,8 @@ const Hero = () => {
               <div className="text-sm text-white/80">Clientes atendidos</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white">24h</div>
-              <div className="text-sm text-white/80">Suporte técnico</div>
+              <div className="text-3xl md:text-3xl font-bold text-white">Atendimento</div>
+              <div className="text-sm text-white/80">Em todo Vale do Aço</div>
             </div>
           </div>
         </div>
