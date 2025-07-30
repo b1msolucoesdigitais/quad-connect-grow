@@ -1,20 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, Users } from "lucide-react";
 import heroImage from "@/assets/hero-tech.jpg";
-
 const Hero = () => {
-  return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div className="absolute inset-0 z-0" style={{
+      backgroundImage: `url(${heroImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/80" />
       </div>
 
@@ -50,20 +45,15 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              variant="hero" 
-              size="xl"
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <Button variant="hero" size="xl" onClick={() => document.getElementById('contato')?.scrollIntoView({
+            behavior: 'smooth'
+          })}>
               Solicitar Orçamento
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="xl"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
-              onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <Button variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20" onClick={() => document.getElementById('servicos')?.scrollIntoView({
+            behavior: 'smooth'
+          })}>
               Conhecer Serviços
             </Button>
           </div>
@@ -75,7 +65,7 @@ const Hero = () => {
               <div className="text-sm text-white/80">Anos de experiência</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white">500+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white">5000+</div>
               <div className="text-sm text-white/80">Clientes atendidos</div>
             </div>
             <div className="text-center">
@@ -92,8 +82,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

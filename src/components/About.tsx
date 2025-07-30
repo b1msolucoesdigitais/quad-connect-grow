@@ -1,9 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Clock, Heart, MapPin } from "lucide-react";
-
 const About = () => {
-  return (
-    <section id="sobre" className="py-20 bg-muted/30">
+  return <section id="sobre" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -90,7 +88,7 @@ const About = () => {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span>Segunda a Sexta:</span>
-                <span className="font-medium">8:30 às 18:30</span>
+                <span className="font-medium">9:00 às 18:00</span>
               </div>
               <div className="flex justify-between">
                 <span>Sábado:</span>
@@ -104,8 +102,6 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
