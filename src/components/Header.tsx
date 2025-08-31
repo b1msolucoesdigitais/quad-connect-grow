@@ -1,16 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Phone } from "lucide-react";
-import quadLogo from "@/assets/quad-logo.png";
+import { MessageSquare, Phone, Menu } from "lucide-react";
+import { companyConfig } from "@/config/company";
+import { useState } from "react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <img 
-            src="https://www.quadinformatica.com.br/wp-content/uploads/2020/09/LOGO-GRAND.png" 
-            alt="Quad Informática" 
-            className="h-[85px] w-auto"
+            src={companyConfig.logo.url} 
+            alt={companyConfig.logo.alt} 
+            className="h-[60px] md:h-[85px] w-auto"
           />
         </div>
         
@@ -25,22 +28,68 @@ const Header = () => {
           <Button 
             variant="outline" 
             size="sm"
-            className="hidden sm:flex"
-            onClick={() => window.open('tel:+553138236644')}
+            className="hidden sm:flex border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            onClick={() => window.open(companyConfig.urls.phone)}
           >
             <Phone className="w-4 h-4" />
-            (31) 3823-6644
+            {companyConfig.contact.phone}
           </Button>
           <Button 
             variant="whatsapp" 
             size="sm"
-            onClick={() => window.open('https://api.whatsapp.com/send?phone=553138236644&text=Olá! Gostaria de saber mais sobre os serviços da Quad Informática.')}
+            onClick={() => window.open(`${companyConfig.urls.whatsapp}&text=Olá! Gostaria de saber mais sobre os serviços da ${companyConfig.name}.`)}
           >
-            <MessageCircle className="w-4 h-4" />
-            WhatsApp
+            <MessageSquare className="w-4 h-4" />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </Button>
+          
+          {/* Menu Mobile */}
+          <Button 
+            variant="outline" 
+            size="sm"
+            className="md:hidden border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="w-4 h-4" />
           </Button>
         </div>
       </div>
+
+      {/* Menu Mobile Dropdown */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border">
+          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            <a 
+              href="#inicio" 
+              className="text-foreground hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Início
+            </a>
+            <a 
+              href="#sobre" 
+              className="text-foreground hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sobre
+            </a>
+            <a 
+              href="#servicos" 
+              className="text-foreground hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Serviços
+            </a>
+            <a 
+              href="#contato" 
+              className="text-foreground hover:text-primary transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contato
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

@@ -4,9 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import { MessageCircle, Phone, Mail, MapPin, Clock, Send, ShoppingCart } from "lucide-react";
+import { MessageSquare, Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { companyConfig } from "@/config/company";
 const Contact = () => {
   const {
     toast
@@ -15,14 +16,14 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    service: "",
+    services: [] as string[],
     message: ""
   });
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validação básica
-    if (!formData.name || !formData.phone || !formData.service) {
+    if (!formData.name || !formData.phone || formData.services.length === 0) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha todos os campos obrigatórios.",
@@ -38,10 +39,10 @@ Olá! Gostaria de solicitar um orçamento:
 *Nome:* ${formData.name}
 *Telefone:* ${formData.phone}
 *Email:* ${formData.email || 'Não informado'}
-*Serviço:* ${formData.service}
+*Serviços:* ${formData.services.join(', ')}
 *Mensagem:* ${formData.message || 'Sem observações adicionais'}
     `.trim();
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=553138236644&text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `${companyConfig.urls.whatsapp}&text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
     toast({
       title: "Redirecionando para WhatsApp",
@@ -53,7 +54,7 @@ Olá! Gostaria de solicitar um orçamento:
       name: "",
       email: "",
       phone: "",
-      service: "",
+      services: [],
       message: ""
     });
   };
@@ -80,7 +81,7 @@ Olá! Gostaria de solicitar um orçamento:
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Send className="w-5 h-5 mr-2 text-primary" />
-                Solicitar Orçamento
+                Entrar em Contato
               </CardTitle>
               <CardDescription>
                 Preencha o formulário e receba uma resposta rápida via WhatsApp
@@ -101,34 +102,48 @@ Olá! Gostaria de solicitar um orçamento:
 
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} placeholder="seu@email.com" />
+                  <Input id="email" type="email" value={formData.email} onChange={e => handleInputChange('email', e.target.value)} placeholder="seu@email.com.br" />
                 </div>
 
                 <div>
-                  <Label htmlFor="service">Serviço Desejado *</Label>
-                  <Select value={formData.service} onValueChange={value => handleInputChange('service', value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione o serviço" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="formatacao">Formatação de Computador</SelectItem>
-                      <SelectItem value="rede">Rede de Computadores</SelectItem>
-                      <SelectItem value="upgrade">Upgrade de Hardware</SelectItem>
-                      <SelectItem value="notebook">Manutenção de Notebook</SelectItem>
-                      <SelectItem value="celular">Assistência em Celular</SelectItem>
-                      <SelectItem value="empresarial">Suporte Empresarial</SelectItem>
-                      <SelectItem value="outros">Outros Serviços</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                  <Label className="text-base font-medium mb-3 block">Serviços Desejados *</Label>
+                  <div className="grid grid-cols-1 gap-3">
+                    {companyConfig.services.map((service, index) => (
+                      <div key={index} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={`service-${index}`}
+                          checked={formData.services.includes(service)}
+                          onCheckedChange={(checked) => {
+                            if (checked) {
+                              setFormData(prev => ({
+                                ...prev,
+                                services: [...prev.services, service]
+                              }));
+                            } else {
+                              setFormData(prev => ({
+                                ...prev,
+                                services: prev.services.filter(s => s !== service)
+                              }));
+                            }
+                          }}
+                        />
+                        <Label htmlFor={`service-${index}`} className="text-sm font-normal cursor-pointer">
+                          {service}
+                        </Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>                
 
                 <div>
                   <Label htmlFor="message">Mensagem Adicional</Label>
-                  <Textarea id="message" value={formData.message} onChange={e => handleInputChange('message', e.target.value)} placeholder="Descreva o problema ou serviço desejado..." rows={4} />
+                  <Textarea id="message" value={formData.message} onChange={e => handleInputChange('message', e.target.value)} placeholder="Descreva o problema ou serviço desejado..." rows={5} />
                 </div>
 
+
+
                 <Button type="submit" variant="hero" size="lg" className="w-full">
-                  <MessageCircle className="w-5 h-5" />
+                  <MessageSquare className="w-5 h-5" />
                   Enviar via WhatsApp
                 </Button>
               </form>
@@ -148,7 +163,7 @@ Olá! Gostaria de solicitar um orçamento:
                     </div>
                     <div>
                       <p className="font-medium">Telefone / WhatsApp</p>
-                      <p className="text-muted-foreground">(31) 3823-6644</p>
+                      <p className="text-muted-foreground">{companyConfig.contact.phone}</p>
                     </div>
                   </div>
                   
@@ -158,7 +173,7 @@ Olá! Gostaria de solicitar um orçamento:
                     </div>
                     <div>
                       <p className="font-medium">Localização</p>
-                      <p className="text-muted-foreground">Amaro Lanari, Cel. Fabriciano - MG</p>
+                      <p className="text-muted-foreground">{companyConfig.contact.address.street} - {companyConfig.contact.address.neighborhood}, {companyConfig.contact.address.city} - {companyConfig.contact.address.state}</p>
                     </div>
                   </div>
 
@@ -169,8 +184,8 @@ Olá! Gostaria de solicitar um orçamento:
                     <div>
                       <p className="font-medium">Horário de Atendimento</p>
                       <p className="text-muted-foreground text-sm">
-                        Seg-Sex: 8:30-18:30<br />
-                        Sáb: 9:00-13:00
+                        Seg-Sex: {companyConfig.businessHours.weekdays}<br />
+                        Sáb: {companyConfig.businessHours.saturday}
                       </p>
                     </div>
                   </div>
@@ -178,32 +193,29 @@ Olá! Gostaria de solicitar um orçamento:
               </CardContent>
             </Card>
 
-            {/* Ações Rápidas */}
-            <div className="grid grid-cols-1 gap-4">
-              <Button variant="whatsapp" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('https://api.whatsapp.com/send?phone=553138236644&text=Olá! Gostaria de saber mais sobre os serviços da Quad Informática.')}>
-                <MessageCircle className="w-6 h-6 mr-3" />
-                <div className="text-left">
-                  <div className="font-semibold">Falar via WhatsApp</div>
-                  <div className="text-sm opacity-90">Resposta imediata</div>
-                </div>
-              </Button>
+            {/* Mapa */}
+            <Card className="hover:shadow-elegant transition-all duration-300">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-xl mb-4">Nossa Localização</h3>
+                <div className="space-y-4">
+                  <div className="aspect-video w-full rounded-lg overflow-hidden">
+                    <iframe
+                      src={companyConfig.map.embedUrl}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Localização da Quad Informática"
+                      className="rounded-lg"
+                    />
+                  </div>
 
-              <Button variant="outline" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('tel:+553138236644')}>
-                <Phone className="w-6 h-6 mr-3" />
-                <div className="text-left">
-                  <div className="font-semibold">Ligar Agora</div>
-                  <div className="text-sm text-muted-foreground">(31) 3823-6644</div>
                 </div>
-              </Button>
+              </CardContent>
+            </Card>
 
-              <Button variant="outline" size="lg" className="w-full justify-start h-auto p-4" onClick={() => window.open('https://quadinformatica.mercadoshops.com.br/')}>
-                <ShoppingCart className="w-6 h-6 mr-3" />
-                <div className="text-left">
-                  <div className="font-semibold">Loja Online</div>
-                  <div className="text-sm text-muted-foreground">Produtos e serviços</div>
-                </div>
-              </Button>
-            </div>
           </div>
         </div>
       </div>

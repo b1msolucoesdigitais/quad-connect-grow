@@ -4,13 +4,13 @@ import {
   Monitor, 
   Network, 
   HardDrive, 
-  Smartphone, 
+  ShoppingCart, 
   Shield, 
-  Settings,
   Laptop,
   Server,
-  MessageCircle
+  MessageSquare
 } from "lucide-react";
+import { companyConfig } from "@/config/company";
 
 const Services = () => {
   const services = [
@@ -39,10 +39,10 @@ const Services = () => {
       features: ["Troca de tela", "Reparo de teclado", "Substituição de bateria", "Limpeza interna"]
     },
     {
-      icon: Smartphone,
-      title: "Assistência em Celulares",
-      description: "Reparo de smartphones e tablets. Tela quebrada, problemas de software e componentes danificados.",
-      features: ["Troca de tela", "Problemas de software", "Reparo de conectores", "Backup de dados"]
+      icon: ShoppingCart,
+      title: "Venda de Equipamentos e Acessórios",
+      description: "Equipamentos de informática de qualidade e acessórios essenciais. Computadores, notebooks, periféricos e muito mais.",
+      features: ["Computadores e notebooks", "Periféricos e acessórios", "Equipamentos de rede", "Produtos de qualidade"]
     },
     {
       icon: Server,
@@ -89,9 +89,9 @@ const Services = () => {
                 <Button 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => window.open('https://api.whatsapp.com/send?phone=553138236644&text=Olá! Gostaria de saber mais sobre: ' + service.title)}
+                  onClick={() => window.open(`${companyConfig.urls.whatsapp}&text=Olá! Gostaria de saber mais sobre: ${service.title}`)}
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4" />
                   Solicitar Orçamento
                 </Button>
               </CardContent>
@@ -109,21 +109,13 @@ const Services = () => {
             Todos os nossos serviços possuem garantia. Trabalhamos apenas com peças originais 
             e oferecemos suporte completo pós-atendimento.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button 
               variant="hero" 
               size="lg"
               onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Fale Conosco Agora
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => window.open('https://quadinformatica.mercadoshops.com.br/')}
-            >
-              <Settings className="w-4 h-4" />
-              Visitar Loja Online
             </Button>
           </div>
         </div>

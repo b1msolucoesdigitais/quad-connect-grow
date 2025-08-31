@@ -1,14 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Clock, Heart, MapPin } from "lucide-react";
+import { companyConfig } from "@/config/company";
 const About = () => {
   return <section id="sobre" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Sobre a Quad Informática
+            Sobre a {companyConfig.name}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Uma empresa consolidada no Vale do Aço, com mais de uma década de experiência 
+            Uma empresa consolidada no {companyConfig.stats.serviceArea}, com mais de uma década de experiência 
             em soluções tecnológicas completas.
           </p>
         </div>
@@ -31,7 +32,7 @@ const About = () => {
             </p>
             <div className="flex items-center space-x-4 text-primary">
               <MapPin className="w-5 h-5" />
-              <span className="font-medium">Vale do Aço - Minas Gerais</span>
+              <span className="font-medium">{companyConfig.stats.serviceArea} - {companyConfig.contact.address.state}</span>
             </div>
           </div>
 
@@ -41,7 +42,7 @@ const About = () => {
                 <Award className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h4 className="font-bold text-lg mb-2">Experiência</h4>
                 <p className="text-muted-foreground text-sm">
-                  Mais de 10 anos no mercado de tecnologia
+                  {companyConfig.stats.yearsExperience} anos no mercado de tecnologia
                 </p>
               </CardContent>
             </Card>
@@ -79,28 +80,6 @@ const About = () => {
             </Card>
           </div>
         </div>
-
-        {/* Horário de Funcionamento */}
-        <Card className="max-w-md mx-auto">
-          <CardContent className="p-6 text-center">
-            <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h4 className="font-bold text-lg mb-4">Horário de Funcionamento</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>Segunda a Sexta:</span>
-                <span className="font-medium">9:00 às 18:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Sábado:</span>
-                <span className="font-medium">9:00 às 13:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Domingo:</span>
-                <span className="font-medium">Fechado</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>;
 };
