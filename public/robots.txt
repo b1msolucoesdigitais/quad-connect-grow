@@ -4,9 +4,6 @@ Allow: /
 # Sitemap
 Sitemap: https://www.quadinformatica.com.br/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
-
 # Disallow specific files
 Disallow: /api/
 Disallow: /admin/

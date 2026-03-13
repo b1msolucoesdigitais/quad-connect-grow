@@ -1,0 +1,40 @@
+# Quad Informatica
+
+> Assistencia tecnica em informatica em Coronel Fabriciano, MG, Brasil, atendendo o Vale do Aco desde 2010.
+
+## Resumo
+
+- Nome: Quad Informatica
+- Site oficial: https://www.quadinformatica.com.br
+- Tipo de negocio: assistencia tecnica em informatica, manutencao de computadores, suporte de TI e venda de equipamentos
+- Localizacao: Av. Brasilia, 2286, Amaro Lanari, Coronel Fabriciano, MG, Brasil
+- Area de atendimento: Coronel Fabriciano e Vale do Aco
+- Contato: +55 31 3823-6644
+- WhatsApp: https://api.whatsapp.com/send?phone=553138236644
+- E-mail: contato@quadinformatica.com.br
+- Instagram: https://www.instagram.com/informaticaquad
+- Horario: segunda a sexta de 09:00 as 18:00, sabado de 09:00 as 13:00
+
+## Servicos
+
+- Formatacao de computadores
+- Rede de computadores
+- Upgrade de hardware
+- Manutencao de notebooks
+- Manutencao de impressoras jato de tinta e tanque
+- Suporte empresarial
+- Venda de equipamentos e acessorios
+
+## Descricao
+
+Quad Informatica e uma empresa de tecnologia localizada em Coronel Fabriciano, Minas Gerais. Atua desde 2010 com assistencia tecnica em informatica para clientes residenciais e empresariais no Vale do Aco. O foco do negocio inclui manutencao e formatacao de computadores, manutencao de notebooks, manutencao de impressoras jato de tinta e tanque, configuracao de redes, upgrade de hardware, suporte empresarial e venda de equipamentos de informatica.
+
+## URLs Canonicas
+
+- Home: https://www.quadinformatica.com.br/
+- Sitemap: https://www.quadinformatica.com.br/sitemap.xml
+- Robots: https://www.quadinformatica.com.br/robots.txt
+
+## Idioma
+
+- Conteudo principal em pt-BR
