@@ -15,13 +15,13 @@ const Footer = () => {
               {companyConfig.description}
             </p>
             <div className="flex space-x-2">
-              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.whatsapp)}>
+              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.whatsapp, "_blank", "noopener,noreferrer")}>
                 <MessageSquare className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.phone)}>
+              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.phone, "_blank", "noopener,noreferrer")}>
                 <Phone className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.instagram)}>
+              <Button variant="outline" size="sm" onClick={() => window.open(companyConfig.urls.instagram, "_blank", "noopener,noreferrer")}>
                 <Instagram className="w-4 h-4" />
               </Button>
             </div>
@@ -43,19 +43,19 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone className="w-4 h-4" />
-                <a href={companyConfig.urls.phone} className="hover:text-primary transition-colors cursor-pointer">
+                <a href={companyConfig.urls.phone} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                   {companyConfig.contact.phone}
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MessageSquare className="w-4 h-4" />
-                <a href={companyConfig.urls.whatsapp} className="hover:text-primary transition-colors cursor-pointer">
+                <a href={companyConfig.urls.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                   WhatsApp
                 </a>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Instagram className="w-4 h-4" />
-                <a href={companyConfig.urls.instagram} className="hover:text-primary transition-colors cursor-pointer">
+                <a href={companyConfig.urls.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                   {companyConfig.contact.instagram}
                 </a>
               </div>

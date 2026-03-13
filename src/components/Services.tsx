@@ -7,6 +7,7 @@ import {
   ShoppingCart, 
   Shield, 
   Laptop,
+  Printer,
   Server,
   MessageSquare
 } from "lucide-react";
@@ -37,6 +38,12 @@ const Services = () => {
       title: "Manutenção de Notebooks",
       description: "Conserto especializado em notebooks e ultrabooks. Tela, teclado, bateria e componentes internos.",
       features: ["Troca de tela", "Reparo de teclado", "Substituição de bateria", "Limpeza interna"]
+    },
+    {
+      icon: Printer,
+      title: "Manutenção de Impressoras Jato de Tinta e Tanque",
+      description: "Diagnóstico e manutenção de impressoras com foco em falhas de impressão, alimentação de papel e sistemas de tinta.",
+      features: ["Limpeza de cabeçotes", "Revisão do sistema de tinta", "Correção de falhas de impressão", "Ajustes mecânicos"]
     },
     {
       icon: ShoppingCart,

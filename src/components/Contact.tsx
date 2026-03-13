@@ -8,6 +8,25 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { MessageSquare, Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { companyConfig } from "@/config/company";
+
+const formatPhoneNumber = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+
+  if (digits.length <= 2) {
+    return digits.length ? `(${digits}` : "";
+  }
+
+  if (digits.length <= 7) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  }
+
+  if (digits.length <= 10) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  }
+
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+};
+
 const Contact = () => {
   const {
     toast
@@ -96,7 +115,16 @@ Olá! Gostaria de solicitar um orçamento:
                   </div>
                   <div>
                     <Label htmlFor="phone">Telefone *</Label>
-                    <Input id="phone" value={formData.phone} onChange={e => handleInputChange('phone', e.target.value)} placeholder="(31) 99999-9999" required />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      inputMode="numeric"
+                      maxLength={15}
+                      value={formData.phone}
+                      onChange={e => handleInputChange('phone', formatPhoneNumber(e.target.value))}
+                      placeholder="(31) 99999-9999"
+                      required
+                    />
                   </div>
                 </div>
 

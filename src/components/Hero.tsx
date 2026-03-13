@@ -20,7 +20,7 @@ const Hero = () => {
           <div className="mb-6 flex flex-wrap justify-center gap-4 md:space-x-8">
             <div className="flex items-center space-x-2">
               <Shield className="w-5 h-5 md:w-6 md:h-6 text-white/80" />
-              <span className="text-xs md:text-sm text-white/80">Há +10 anos no mercado</span>
+              <span className="text-xs md:text-sm text-white/80">Há 16 anos no mercado</span>
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="w-5 h-5 md:w-6 md:h-6 text-white/80" />

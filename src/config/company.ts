@@ -2,7 +2,7 @@ export const companyConfig = {
   // Informações básicas da empresa
   name: "Quad Informática",
   slogan: "Tecnologia e Inovação para o Vale do Aço",
-  description: "Há mais de 10 anos oferecendo soluções completas em tecnologia para o Vale do Aço. Qualidade, confiança e atendimento personalizado.",
+  description: "Desde 2010 oferecendo soluções completas em tecnologia para o Vale do Aço. Qualidade, confiança e atendimento personalizado.",
   
   // Logo
   logo: {
@@ -43,13 +43,14 @@ export const companyConfig = {
     "Rede de Computadores", 
     "Upgrade de Hardware",
     "Manutenção de Notebooks",
+    "Manutenção de Impressoras Jato de Tinta e Tanque",
     "Suporte Empresarial",
     "Venda de Equipamentos e Acessórios"
   ],
   
   // Estatísticas
   stats: {
-    yearsExperience: "+10",
+    yearsExperience: "+16",
     clientsServed: "5000+",
     serviceArea: "Vale do Aço"
   },
@@ -73,5 +74,5 @@ export const companyConfig = {
   },
   
   // Copyright
-  copyright: "© 2025 Quad Informática. Todos os direitos reservados. Há mais de 10 anos trazendo tecnologia para o Vale do Aço."
+  copyright: "© 2025 Quad Informática. Todos os direitos reservados. Desde 2010 trazendo tecnologia para o Vale do Aço."
 };
